@@ -28,6 +28,7 @@ namespace CSEFTPC4Core3Cap
 
             modelBuilder.Entity<Ac4yPersistentChild>().ToTable("Ac4yPersistentChilds");
 
+            //modelBuilder.Entity<Ac4yPersistentChild>().HasNoKey();
         }
     }
 }
