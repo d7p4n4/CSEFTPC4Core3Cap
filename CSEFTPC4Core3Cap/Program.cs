@@ -1,6 +1,8 @@
 ﻿
 using CSEFTPC4Core3Cap.CAPs;
+using CSEFTPC4Core3Objects.Ac4yObjects;
 using System;
+using System.Collections.Generic;
 
 namespace CSEFTPC4Core3Cap
 {
@@ -8,12 +10,7 @@ namespace CSEFTPC4Core3Cap
     {
         static void Main(string[] args)
         {
-            new Ac4yPersistentChildEFCap().UpdateById(1, new CSEFTPC4Core3Objects.Ac4yObjects.Ac4yPersistentChild()
-            {
-                Id = 1,
-                name = "updated",
-                updatedAt = "1525"
-            });
+            IEnumerable<Ac4yPersistentChild> list = new Ac4yPersistentChildEFCap().GetList();
         }
     }
 }

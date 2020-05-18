@@ -1,31 +1,27 @@
 using CSARMetaPlan.Class;
 using System.Linq;
 using Ac4yUtilityContainer;
-using CSEFTPC4Core3Objects.Ac4yObjects;
-using System.Collections;
 using System.Collections.Generic;
+using CSEFTPC4Core3Objects.Ac4yObjects;
+using CSEFTPC4Core3Cap;
 
 namespace CSEFTPC4Core3Cap.CAPs
 {
 
     public class Ac4yPersistentChildEFCap
     {
-        public Ac4yPersistentChildEFCap()
-        {
-            new Context().Database.EnsureCreated();
-        }
+      public IEnumerable<Ac4yPersistentChild> GetList()
+      {
+          
+          return new Context().Ac4yPersistentChilds;
 
-        public IEnumerable<Ac4yPersistentChild> GetAc4yPersistentChilds()
-        {
-            return new Context().Ac4yPersistentChilds;
-        }
-
+      } // GetList   
+   
       public void Insert(Ac4yPersistentChild ac4yPersistentChild)
       {
 
           using (var context = new Context())
           {
-                
 
               context.Ac4yPersistentChilds.Add(ac4yPersistentChild);
               context.SaveChanges();
@@ -49,7 +45,7 @@ namespace CSEFTPC4Core3Cap.CAPs
       {
 
           return new Context().Ac4yPersistentChilds
-                    .Where(entity => entity.guid == guid)
+                    .Where(entity => entity.GUID == guid)
                     .FirstOrDefault<Ac4yPersistentChild>();
 
       } // GetByGuid
@@ -81,27 +77,26 @@ namespace CSEFTPC4Core3Cap.CAPs
           using (var context = new Context())
           {
 
-              Ac4yPersistentChild actual = context.Ac4yPersistentChilds.Where(entity => entity.guid == guid).FirstOrDefault<Ac4yPersistentChild>();
+              Ac4yPersistentChild actual = context.Ac4yPersistentChilds.Where(entity => entity.GUID == guid).FirstOrDefault<Ac4yPersistentChild>();
               int id = actual.Id;
               new Ac4yUtility().Object2Object(ac4yPersistentChild, actual);
               actual.Id = id;
-              actual.guid= guid;
+              actual.GUID= guid;
               context.SaveChanges();
 
           }
 
-          
       } // UpdateByGuid
 
-        public void DeleteAc4yPersistentChildById(int id)
-        {
-            var context = new Context();
+    public void DeleteById(int id)
+    {
+        var context = new Context();
 
-            Ac4yPersistentChild ac4yPersistentChild = context.Ac4yPersistentChilds.Find(id);
-            context.Ac4yPersistentChilds.Remove(ac4yPersistentChild);
-            context.SaveChanges();
+        Ac4yPersistentChild actual = context.Ac4yPersistentChilds.Find(id);
+        context.Ac4yPersistentChilds.Remove(actual);
+        context.SaveChanges();
 
-        } // DeleteAc4yPersistentChildById
+    } // DeleteById
 
     } // Ac4yPersistentChildEFCap
 
