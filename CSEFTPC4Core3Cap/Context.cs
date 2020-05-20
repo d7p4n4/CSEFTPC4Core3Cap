@@ -21,7 +21,7 @@ namespace CSEFTPC4Core3Cap
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(Configuration["CONNECTIONSTRING"]);
+            optionsBuilder.UseSqlServer(Configuration.GetConnectionString("MyConnection"));
 
         }
 

@@ -10,7 +10,7 @@ namespace CSEFTPC4Core3Cap
     {
         static void Main(string[] args)
         {
-            IEnumerable<Ac4yPersistentChild> list = new Ac4yPersistentChildEFCap().GetList();
+            Ac4yPersistentChild list = new Ac4yPersistentChildEFCap().GetById(12);
         }
     }
 }
