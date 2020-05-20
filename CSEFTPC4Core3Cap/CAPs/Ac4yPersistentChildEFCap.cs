@@ -22,6 +22,7 @@ namespace CSEFTPC4Core3Cap.CAPs
 
           using (var context = new Context())
           {
+                context.Database.EnsureCreated();
 
               context.Ac4yPersistentChilds.Add(ac4yPersistentChild);
               context.SaveChanges();

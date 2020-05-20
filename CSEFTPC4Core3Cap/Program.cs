@@ -10,7 +10,12 @@ namespace CSEFTPC4Core3Cap
     {
         static void Main(string[] args)
         {
-            Ac4yPersistentChild list = new Ac4yPersistentChildEFCap().GetById(12);
+            new Ac4yPersistentChildEFCap().Insert(new Ac4yPersistentChild()
+            {
+                name = "teszt",
+                createdAt = DateTime.Now,
+                updatedAt = DateTime.Now
+            });
         }
     }
 }

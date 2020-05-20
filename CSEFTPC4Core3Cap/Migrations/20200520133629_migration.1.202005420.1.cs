@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CSEFTPC4Core3Cap.Migrations
 {
-    public partial class migration1202005151 : Migration
+    public partial class migration12020054201 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,6 +13,9 @@ namespace CSEFTPC4Core3Cap.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Ac4yPersistentChilds");
+
+            migrationBuilder.DropTable(
+                name: "Ac4yIdentificationBase");
         }
     }
 }

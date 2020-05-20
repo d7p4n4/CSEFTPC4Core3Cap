@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CSEFTPC4Core3Cap.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20200518100153_migration.1.20200518.2")]
-    partial class migration1202005182
+    [Migration("20200520133629_migration.1.202005420.1")]
+    partial class migration12020054201
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -35,8 +35,8 @@ namespace CSEFTPC4Core3Cap.Migrations
                     b.Property<string>("GUID")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("createdAt")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("createdAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("humanId")
                         .HasColumnType("nvarchar(max)");
@@ -44,8 +44,8 @@ namespace CSEFTPC4Core3Cap.Migrations
                     b.Property<string>("publicHumanId")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("updatedAt")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("updatedAt")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -70,8 +70,8 @@ namespace CSEFTPC4Core3Cap.Migrations
                     b.Property<int>("ages")
                         .HasColumnType("int");
 
-                    b.Property<string>("createdAt")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("createdAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("name")
                         .HasColumnType("nvarchar(max)");
@@ -79,8 +79,8 @@ namespace CSEFTPC4Core3Cap.Migrations
                     b.Property<string>("owner")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("updatedAt")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("updatedAt")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
