@@ -1,5 +1,6 @@
 ﻿using CSEFTPC4Core3Objects.Ac4yObjects;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,16 +9,19 @@ namespace CSEFTPC4Core3Cap
 {
     public class Context : DbContext
     {
+        private IConfiguration Configuration;
+
         public Context() : base()
         {
-            //Database.SetInitializer<Context>(new CreateDatabaseIfNotExists<Context>());
-            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<Context, Migrations.Configuration>());
 
+            Configuration = new ConfigurationBuilder()
+            .AddJsonFile("appsettings.json", true, true)
+            .Build();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=89.46.75.137;Database=TPCAc4y;Trusted_Connection=False;uid=SA;pwd=Sycompla9999*;");
+            optionsBuilder.UseSqlServer(Configuration["CONNECTIONSTRING"]);
 
         }
 
