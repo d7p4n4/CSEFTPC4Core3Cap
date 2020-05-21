@@ -4,6 +4,7 @@ using Ac4yUtilityContainer;
 using System.Collections.Generic;
 using CSEFTPC4Core3Objects.Ac4yObjects;
 using CSEFTPC4Core3Cap;
+using System;
 
 namespace CSEFTPC4Core3Cap.CAPs
 {
@@ -24,6 +25,8 @@ namespace CSEFTPC4Core3Cap.CAPs
           {
                 context.Database.EnsureCreated();
 
+                ac4yPersistentChild.createdAt = DateTime.Now;
+                ac4yPersistentChild.updatedAt = DateTime.Now;
               context.Ac4yPersistentChilds.Add(ac4yPersistentChild);
               context.SaveChanges();
           }
@@ -65,6 +68,10 @@ namespace CSEFTPC4Core3Cap.CAPs
             {
 
                 Ac4yPersistentChild actual = context.Ac4yPersistentChilds.Find(id);
+
+                ac4yPersistentChild.updatedAt = DateTime.Now;
+                ac4yPersistentChild.createdAt = actual.createdAt;
+
                 new Ac4yUtility().Object2Object(ac4yPersistentChild, actual);
                 context.SaveChanges();
 
