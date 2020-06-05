@@ -1,4 +1,5 @@
-﻿using CSEFTPC4Core3Objects.Ac4yObjects;
+﻿using CSARMetaPlan.Class;
+using CSEFTPC4Core3Objects.Ac4yObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -26,6 +27,7 @@ namespace CSEFTPC4Core3Cap
         }
 
         public DbSet<Ac4yPersistentChild> Ac4yPersistentChilds { get; set; }
+        public DbSet<Kepernyo> Kepernyos { get; set; }
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
